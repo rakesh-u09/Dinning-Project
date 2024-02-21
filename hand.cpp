@@ -1,6 +1,12 @@
 #include "hand.h"
 
-Hand::Hand() {}
+Hand::Hand() {
+    m_fingers.push_back(Fingers("Thumb", 3.5)); // Default length is 3.5 inches
+    m_fingers.push_back(Fingers("Index Finger", 3.0));
+    m_fingers.push_back(Fingers("Middle Finger", 3.0));
+    m_fingers.push_back(Fingers("Ring Finger", 2.75));
+    m_fingers.push_back(Fingers("Pinky", 2.5));
+}
 
 void Hand::displayFingers() const
 {

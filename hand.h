@@ -17,7 +17,6 @@ public:
     void grabFood(const string& food) const;
 private:
     vector<Fingers> m_fingers;
-    string m_rightOrLeft;
 };
 
 #endif // HAND_H

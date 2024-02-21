@@ -6,6 +6,8 @@ CONFIG -= qt
 SOURCES += \
         FoodContainer.cpp \
         Mouth.cpp \
+        Person.cpp \
+        Plate.cpp \
         Tongue.cpp \
         Tooth.cpp \
         fingers.cpp \
@@ -18,6 +20,9 @@ SOURCES += \
 HEADERS += \
     FoodContainer.h \
     Mouth.h \
+    Person.h \
+    Plate.h \
+    Size.h \
     Tongue.h \
     Tooth.h \
     fingers.h \

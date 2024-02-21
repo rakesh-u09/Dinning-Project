@@ -1,8 +1,9 @@
 #include "glass.h"
 
-Glass::Glass(double volume)
+Glass::Glass(double volume,string content)
 {
     m_volume = volume;
+    m_content = content;
 }
 
 void Glass::fill(const string &liquid)

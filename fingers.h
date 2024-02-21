@@ -3,7 +3,7 @@
 #include "string"
 using namespace std;
 typedef string name;
-typedef double length;
+typedef double fingerLength;
 class Fingers
 {
 public:
@@ -12,7 +12,7 @@ public:
     void graspFood();
     void releaseFood();
     name getName() const;
-    length getLength() const;
+    fingerLength getLength() const;
 
 
 private:

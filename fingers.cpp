@@ -26,7 +26,7 @@ name Fingers::getName() const
     return m_name;
 }
 
-length Fingers::getLength() const
+fingerLength Fingers::getLength() const
 {
     return m_length;
 }

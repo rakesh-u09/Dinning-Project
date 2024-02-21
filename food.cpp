@@ -1,9 +1,8 @@
 #include "food.h"
-Food::Food(string name,int calories,string taste)
+Food::Food(string name,int calories)
 {
     m_name = name;
     m_calories = calories;
-    m_taste = taste;
 }
 
 void Food::addIngredient(const Ingredients &ingredient)
@@ -21,10 +20,6 @@ int Food::getCalories() const
     return m_calories;
 }
 
-string Food::getTaste() const
-{
-    return m_taste;
-}
 
 void Food::displayIngredients()
 {

@@ -8,7 +8,7 @@ typedef double volume,amount;
 class Glass
 {
 public:
-    Glass(volume);
+    Glass(volume,content);
     void fill(const string& liquid);
     void discharge(amount);
     volume getVolume();
