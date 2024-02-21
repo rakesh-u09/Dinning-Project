@@ -5,7 +5,14 @@ Food::Food(string name,int calories)
     m_calories = calories;
 }
 
-void Food::addIngredient(const Ingredients &ingredient)
+Food::~Food()
+{
+    for (Ingredients* ingredient : m_ingredients) {
+        delete ingredient;
+    }
+}
+
+void Food::addIngredient(Ingredients* ingredient)
 {
     m_ingredients.push_back(ingredient);
 }
@@ -20,11 +27,10 @@ int Food::getCalories() const
     return m_calories;
 }
 
-
 void Food::displayIngredients()
 {
     cout<<"Ingredients: "<<endl;
-    for( Ingredients& ingredient :m_ingredients){
-        cout<< "-"<< ingredient.getName() <<": "<< ingredient.getQuantity()<<" grams/ml"<<endl;
+    for (const auto& ingredient : m_ingredients) {
+        cout << "Name: " << ingredient->getName() << ", Quantity: " << ingredient->getQuantity()<<" grams/ml" << endl;
     }
 }

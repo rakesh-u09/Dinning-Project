@@ -13,10 +13,10 @@ public:
     void displayFingers() const;
     void graspFood();
     void releaseFood();
-    void addFingers(const Fingers& finger);
+    void addFingers(Fingers*);
     void grabFood(const string& food) const;
 private:
-    vector<Fingers> m_fingers;
+    vector<Fingers*> m_fingers;
 };
 
 #endif // HAND_H

@@ -8,9 +8,10 @@ class FoodContainer
 {
 public:
     FoodContainer();
-    void addFood(const Food&,foodQuantity);
+    ~FoodContainer();
+    void addFood(const Food*,foodQuantity);
     bool isEmpty() const;
-    bool takeFood(const Food&);
+    bool checkFood(const string&);
     void displayFoods() const;
 private:
     map<const Food*,foodQuantity> m_foods;

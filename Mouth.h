@@ -12,12 +12,12 @@ public:
     Mouth();
     void chewFood(const string& food) const;
     void drinkWater(const string& liquid) const;
-    void setTooths(const vector<Tooth>);
-    void setTongue(const Tongue);
+    void setTooths(const vector<Tooth*>&);
+    void setTongue(Tongue*);
     void displayTooths() const;
 private:
-    Tongue m_tongue;
-    vector<Tooth> m_tooths;
+    Tongue* m_tongue;
+    vector<Tooth*> m_tooths;
 
 };
 

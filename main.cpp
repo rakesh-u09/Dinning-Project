@@ -11,17 +11,19 @@ using namespace std;
 typedef string name;
 
 FoodContainer foodContainer;
+
+
 void prepareFood();
 Food* prepareRice();
 Food* prepareSambar();
 Food* prepareSalad();
 Food* prepareLemonRice();
 Person createPersonObject(name);
-Tongue createTongueObject();
-Mouth createMouthObject();
-Hand createHandObject();
+Tongue* createTongueObject();
+Mouth* createMouthObject();
+Hand* createHandObject();
 
-vector<Tooth> createToothObjects();
+vector<Tooth*> createToothObjects();
 
 
 int main()
@@ -33,6 +35,8 @@ int main()
     person.displayTooths();
 
     foodContainer.displayFoods();
+    foodContainer.checkFood("Rice");
+    foodContainer.displayFoods();
 
 
     // foodContainer.displayFoods();
@@ -41,24 +45,24 @@ int main()
     // waterGlass.getVolume();
 }
 void prepareFood(){
-    foodContainer.addFood(*prepareRice(),50);
-    foodContainer.addFood(*prepareSambar(),56);
-    foodContainer.addFood(*prepareSalad(),54);
-    foodContainer.addFood(*prepareLemonRice(),80);
+    foodContainer.addFood(prepareRice(),50);
+    foodContainer.addFood(prepareSambar(),56);
+    foodContainer.addFood(prepareSalad(),54);
+    foodContainer.addFood(prepareLemonRice(),80);
 }
 Food* prepareRice(){
-    Ingredients riceIngredient("rice",250);
-    Ingredients saltIngredient("salt",25);
+    Ingredients* riceIngredient = new Ingredients("rice",250);
+    Ingredients* saltIngredient = new Ingredients("salt",25);
     Food* rice= new Food("Rice",25);
     rice->addIngredient(riceIngredient);
     rice->addIngredient(saltIngredient);
     return rice;
 }
 Food* prepareSambar(){
-    Ingredients oil("Oil",250);
-    Ingredients vegetables("Vegetables",50);
-    Ingredients sambarPowder("SambarPowder",55);
-    Ingredients chilliPowder("chilliPowder",40);
+    Ingredients* oil = new Ingredients("Oil",250);
+    Ingredients* vegetables = new Ingredients("Vegetables",50);
+    Ingredients* sambarPowder = new Ingredients("SambarPowder",55);
+    Ingredients* chilliPowder = new Ingredients("chilliPowder",40);
     Food* sambar = new Food("Sambar",50);
     sambar->addIngredient(oil);
     sambar->addIngredient(vegetables);
@@ -67,9 +71,9 @@ Food* prepareSambar(){
     return sambar;
 }
 Food* prepareSalad(){
-    Ingredients onion("Onion",2);
-    Ingredients tomoto("Tomoto",4);
-    Ingredients cucumber("Cucumber",4);
+    Ingredients* onion= new Ingredients("Onion",2);
+    Ingredients* tomoto= new Ingredients("Tomoto",4);
+    Ingredients* cucumber= new Ingredients("Cucumber",4);
     Food* salad = new Food("Salad",45);
     salad->addIngredient(onion);
     salad->addIngredient(tomoto);
@@ -78,8 +82,8 @@ Food* prepareSalad(){
 }
 
 Food* prepareLemonRice(){
-    Ingredients rice("Rice",250);
-    Ingredients lemon("Lemon",3);
+    Ingredients* rice = new Ingredients("Rice",250);
+    Ingredients* lemon = new Ingredients("Lemon",3);
     Food* lemonRice =new Food("Lemonn Rice ",450);
     lemonRice->addIngredient(rice);
     lemonRice->addIngredient(lemon);
@@ -91,27 +95,25 @@ Person createPersonObject(string name){
     person.setMouth(createMouthObject());
     return person;
 }
-vector<Tooth> createToothObjects(){
-    vector<Tooth> teeth;
-    teeth.push_back(Tooth("White", "Incisor", 1));
-    teeth.push_back(Tooth("White", "Canine", 2));
-    teeth.push_back(Tooth("White", "Premolar", 3));
-    teeth.push_back(Tooth("White", "Molar", 2));
+vector<Tooth*> createToothObjects(){
+    vector<Tooth*> teeth;
+    teeth.push_back(new Tooth("White", "Incisor", 1));
+    teeth.push_back(new Tooth("White", "Canine", 2));
+    teeth.push_back(new Tooth("White", "Premolar", 3));
+    teeth.push_back(new Tooth("White", "Molar", 2));
     return teeth;
 }
-Tongue createTongueObject(){
-    Tongue tongue;
-    return tongue;
+Tongue* createTongueObject(){
+    return new Tongue(1);
 }
 
-Mouth createMouthObject(){
-    Mouth mouth;
-    mouth.setTooths(createToothObjects());
-    mouth.setTongue(createTongueObject());
+Mouth* createMouthObject(){
+    Mouth* mouth = new Mouth();
+    mouth->setTooths(createToothObjects());
+    mouth->setTongue(createTongueObject());
     return mouth;
 }
 
-Hand createHandObject(){
-    Hand hand;
-    return hand;
+Hand* createHandObject(){
+    return new Hand();
 }

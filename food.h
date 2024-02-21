@@ -12,7 +12,8 @@ class Food
 {    
 public:
     Food(name,calories);
-    void addIngredient(const Ingredients& ingredient);
+    ~Food();
+    void addIngredient( Ingredients* ingredient);
     string getName() const;
     int getCalories() const;
     void displayIngredients();
@@ -20,6 +21,6 @@ private:
     string m_name;
     int m_calories;
 
-    vector<Ingredients> m_ingredients;
+    vector<Ingredients*> m_ingredients;
 };
 #endif // FOOD_H

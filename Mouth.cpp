@@ -1,10 +1,6 @@
 #include "Mouth.h"
 
 Mouth::Mouth() {
-    for (int i = 0; i < 32; ++i) {
-        m_tooths.push_back(Tooth("white","Molar",2));
-    }
-    m_tongue = Tongue(2);
 }
 
 void Mouth::chewFood(const string &food) const
@@ -17,20 +13,20 @@ void Mouth::drinkWater(const string &liquid) const
     cout<<"Mouth is drinking "<<liquid <<" from the glass."<<endl;
 }
 
-void Mouth::setTooths(const vector<Tooth> tooths)
+void Mouth::setTooths(const vector<Tooth*>& teeth)
 {
-    m_tooths = tooths;
+    m_tooths = teeth;
 }
 
-void Mouth::setTongue(const Tongue tongue)
+void Mouth::setTongue( Tongue* tongue)
 {
     m_tongue = tongue;
 }
 
 void Mouth::displayTooths() const
 {   cout << "List of teeth:" << endl;
-    for (const Tooth& tooth : m_tooths) {
-        tooth.displayTooths();
+    for (const auto& tooth : m_tooths) {
+        tooth->displayTooths();
     }
 
 }
