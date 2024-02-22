@@ -3,18 +3,20 @@
 #include "food.h"
 #include "map"
 typedef int foodQuantity;
+typedef string foodName;
 
 class FoodContainer
 {
 public:
     FoodContainer();
     ~FoodContainer();
-    void addFood(const Food*,foodQuantity);
+    void addFood(const string& foodName,vector<Food*>& foods);
     bool isEmpty() const;
     bool checkFood(const string&);
     void displayFoods() const;
+    Food* takeFood(const string&);
 private:
-    map<const Food*,foodQuantity> m_foods;
+    map<foodName, vector<Food*>> m_foods;
 };
 
 #endif // FOODCONTAINER_H

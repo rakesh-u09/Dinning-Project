@@ -10,15 +10,14 @@ class Plate
 {
 public:
     Plate();
-    // Size displaySize();
-    void addFood(Food*);
+    ~Plate();
+    bool addFood(Food*);
     void displaAllFoods() const;
+    Food* takeFood(const string&);
     bool isEmpty() const;
 
 private:
-    // Size m_size;
     vector<Food*> m_foodItems;
-
 };
 
 #endif // PLATE_H

@@ -9,8 +9,9 @@ class Glass
 {
 public:
     Glass(volume,content);
-    void fill(const string& liquid);
-    void discharge(amount);
+    void fill(amount);
+    bool discharge(amount);
+    string getContent();
     volume getVolume();
 private:
     string m_content;

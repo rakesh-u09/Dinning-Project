@@ -52,8 +52,24 @@ void Person::displayTooths() const
 
 }
 
-// void Person::takePlate(Plate plate)
-// {
-//     m_plat = plate;
-// }
+void Person::chewFood(const string &food) const
+{
+    m_mouth->chewFood(food);
+}
+
+void Person::drinkWater(const string &liquid)
+{
+    m_mouth->drinkWater(liquid);
+}
+
+void Person::releaseFood()
+{
+    m_hand->releaseFood();
+}
+
+string Person::getName() const
+{
+    return m_name;
+}
+
 

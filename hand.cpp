@@ -7,6 +7,14 @@ Hand::Hand() {
     m_fingers.push_back(new Fingers("Ring Finger", 2.75));
     m_fingers.push_back(new Fingers("Pinky", 2.5));
 }
+
+Hand::~Hand()
+{
+    for (Fingers* finger : m_fingers) {
+        delete finger;
+    }
+    m_fingers.clear();
+}
 void Hand::displayFingers() const
 {
     cout<<"Displaying the fingers.."<<endl;
@@ -33,7 +41,13 @@ void Hand::releaseFood()
 
 void Hand::addFingers(Fingers* finger)
 {
-    m_fingers.push_back(finger);
+    if(!finger){
+        cout<< endl <<"Fingers objects should not be null" << endl;
+    }
+    else{
+        m_fingers.push_back(finger);
+    }
+
 }
 
 void Hand::grabFood(const string &food) const

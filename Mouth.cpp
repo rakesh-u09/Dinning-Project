@@ -3,6 +3,11 @@
 Mouth::Mouth() {
 }
 
+Mouth::~Mouth()
+{
+
+}
+
 void Mouth::chewFood(const string &food) const
 {
     cout<<"Mouth is chewing "<< food <<"."<<endl;

@@ -20,7 +20,10 @@ public:
     void grabFood(const string& food) const;
     void displayFingers() const;
     void displayTooths() const;
-    // void takePlate(Plate);
+    void chewFood(const string& food) const;
+    void drinkWater(const string& liquid);
+    void releaseFood();
+    string getName() const;
 
 private:
     string m_name;

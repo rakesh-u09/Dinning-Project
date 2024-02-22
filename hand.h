@@ -10,6 +10,7 @@ class Hand
 {
 public:
     Hand();
+    ~Hand();
     void displayFingers() const;
     void graspFood();
     void releaseFood();

@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        DiningTable.cpp \
         FoodContainer.cpp \
         Mouth.cpp \
         Person.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    DiningTable.h \
     FoodContainer.h \
     Mouth.h \
     Person.h \
