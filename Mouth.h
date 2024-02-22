@@ -10,6 +10,7 @@ class Mouth
 {
 public:
     Mouth();
+    ~Mouth();
     void chewFood(const string& food) const;
     void drinkWater(const string& liquid) const;
     void setTooths(const vector<Tooth*>&);

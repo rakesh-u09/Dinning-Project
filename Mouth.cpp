@@ -5,12 +5,19 @@ Mouth::Mouth() {
 
 Mouth::~Mouth()
 {
+    delete m_tongue;
+
+    for (Tooth* tooth : m_tooths) {
+        delete tooth;
+    }
+    m_tooths.clear();
+
 
 }
 
 void Mouth::chewFood(const string &food) const
 {
-    cout<<"Mouth is chewing "<< food <<"."<<endl;
+    cout << endl<<"Mouth is chewing "<< food <<"."<<endl<< endl;
 }
 
 void Mouth::drinkWater(const string &liquid) const
