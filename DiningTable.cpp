@@ -9,6 +9,10 @@ DiningTable::DiningTable() {
 
 DiningTable::~DiningTable()
 {
+    if(m_plate && m_glass){
+        cout<< endl<< "Plate and glass throw outside "<< endl;
+    }
+
     delete m_plate;
     delete m_glass;
 }
@@ -26,7 +30,7 @@ bool DiningTable::takePlate(Plate* plate )
     }
 }
 
-bool DiningTable::sitInTable(Person *person)
+bool DiningTable::sitOnTable(Person *person)
 {
     if(!m_person){
         m_person = person;
@@ -111,21 +115,22 @@ bool DiningTable::eatFoodsFromPlate(const string& foodName)
         return false;
     }
     if (m_plate->isEmpty()) {
-        cout << "The plate is empty." << endl;
+        cout<< endl << "The plate is empty." << endl<< endl;
         return false;
     }
     Food* food = m_plate->takeFood(foodName);
 
     if (!food) {
-        cout << "Food \"" << foodName << "\" not found in the plate" << endl;
+        cout << endl<< "Food \"" << foodName << "\" not found in the plate" <<endl << endl;
         return false;
     }
     m_person->graspFood();
     m_person->grabFood(food->getName());
     m_person->releaseFood();
     m_person->chewFood(food->getName());
-    cout << "The person eats " << food->getName() << "." << endl;
-    // Delete the food pointer
+    m_person->tasteFood(food->getName());
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    cout<< endl << "The person eats " << food->getName() << "." << endl;
     delete food;
     return true;
 

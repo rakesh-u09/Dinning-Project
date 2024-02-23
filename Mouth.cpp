@@ -17,12 +17,12 @@ Mouth::~Mouth()
 
 void Mouth::chewFood(const string &food) const
 {
-    cout << endl<<"Mouth is chewing "<< food <<"."<<endl<< endl;
+    cout << endl<< endl<<"Mouth is chewing "<< food <<"."<<endl<< endl;
 }
 
 void Mouth::drinkWater(const string &liquid) const
 {
-    cout<<"Mouth is drinking "<<liquid <<" from the glass."<<endl;
+    cout<< endl <<"Mouth is drinking "<<liquid <<" from the glass."<< endl <<endl;
 }
 
 void Mouth::setTooths(const vector<Tooth*>& teeth)
@@ -41,5 +41,10 @@ void Mouth::displayTooths() const
         tooth->displayTooths();
     }
 
+}
+
+void Mouth::tasteFood(const string &food) const
+{
+    m_tongue->tasteFood(food);
 }
 

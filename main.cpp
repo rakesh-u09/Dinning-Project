@@ -31,38 +31,14 @@ int main()
     prepareFood();
     Person* person = createPersonObject("Rakesh");
 
-    // person->displayFingers();
-    // person->displayTooths();
-
-    // foodContainer->displayFoods();
-    // foodContainer->checkFood("Rice");
-    // foodContainer->displayFoods();
+    person->displayFingers();
+    person->displayTooths();
 
     Plate* plate = new Plate();
     Glass* glass = new Glass(5,"water");
 
-    DiningTable diningTable;
-    // diningTable.sitInTable(person);
-    // diningTable.takePlate(plate);
-    // diningTable.takeGlass(glass);
-    // diningTable.takeFoodContainer(foodContainer);
+    DiningTable* diningTable =  new DiningTable();
 
-    // diningTable.displaAllFoodsInContainer();
-
-
-    // diningTable.addFoodToPlate("Sambar");
-    // diningTable.addFoodToPlate("Rice");
-
-    // diningTable.displayAllFoodInPlate();
-
-    // diningTable.displaAllFoodsInContainer();
-
-    // diningTable.drinkWater(5);
-
-    // diningTable.eatFoodsFromPlate("Sambar");
-    // diningTable.eatFoodsFromPlate("Sambar");
-    // diningTable.displayAllFoodInPlate();
-    // diningTable.takePlate(plate);
     int choice;
     string foodName;
     double waterAmount;
@@ -72,56 +48,56 @@ int main()
 
         switch (choice) {
         case 1:
-            diningTable.sitInTable(person);
+            diningTable->sitOnTable(person);
             break;
         case 2:
-            diningTable.takePlate(plate);
+            diningTable->takePlate(plate);
             break;
         case 3:
-            diningTable.takeFoodContainer(foodContainer);
+            diningTable->takeFoodContainer(foodContainer);
             break;
         case 4:
-            diningTable.takeGlass(glass);
+            diningTable->takeGlass(glass);
             break;
         case 5:
             cout << "Enter food name: ";
             cin.ignore();
             getline(cin,foodName);
-            diningTable.addFoodToPlate(foodName);
+            diningTable->addFoodToPlate(foodName);
             break;
         case 6:
             cout << "Enter amount of water to drink: ";
             cin.ignore();
             cin >> waterAmount;
-            diningTable.drinkWater(waterAmount);
+            diningTable->drinkWater(waterAmount);
             break;
         case 7:
-            diningTable.displayAllFoodInPlate();
+            diningTable->displayAllFoodInPlate();
             break;
         case 8:
             cout << "Enter food name to eat: ";
             cin.ignore();
             getline(cin,foodName);
-            diningTable.eatFoodsFromPlate(foodName);
+            diningTable->eatFoodsFromPlate(foodName);
             break;
         case 9:
-            diningTable.displaAllFoodsInContainer();
+            diningTable->displaAllFoodsInContainer();
             break;
         case 10:
             cout << "Enter amount of water to fill: ";
             cin.ignore();
             cin >> waterAmount;
-            diningTable.fillGlass(waterAmount);
+            diningTable->fillGlass(waterAmount);
             break;
         case 0:
-            cout << "Exiting..." << endl;
+            cout << "Finish Eating..." << endl;
+            delete diningTable;
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
         }
     } while (choice != 0);
-
-
+    return 0;
 }
 
 
@@ -221,6 +197,6 @@ void displayMenu() {
     cout << "8. Eat food from plate" << endl;
     cout << "9. Display all foods in container" << endl;
     cout << "10. Fill Glass"<< endl;
-    cout << "0. Exit" << endl;
+    cout << "0. Finish Eating" << endl;
     cout << "Enter your choice: ";
 }

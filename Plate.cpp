@@ -18,7 +18,7 @@ bool Plate::addFood(Food* food)
 {
     if(food){
         m_foodItems.push_back(food);
-        cout<<"Adding "<< food->getName() <<" to the plate."<<endl;
+        cout<< endl<<"Adding "<< food->getName() <<" to the plate."<<endl<<endl;
         return true;
     }
     return false;
@@ -27,29 +27,24 @@ bool Plate::addFood(Food* food)
 void Plate::displaAllFoods() const
 {
     if (m_foodItems.empty()) {
-        cout << "The plate is empty." << endl;
+        cout<< endl << "The plate is empty." <<endl<< endl;
         return;
     }
-    cout<<"Plate contents: "<<endl;
+    cout<<"Foods in plate: "<<endl;
     for (const auto& food : m_foodItems) {
-        cout << food->getName() << endl;
+        cout<< endl<<"\t" << food->getName() << endl;
     }
 }
 
 Food *Plate::takeFood(const string& foodName)
 {
-    for (auto it = m_foodItems.begin(); it != m_foodItems.end(); ++it) {
-        // Check if the current food item has the specified name
-        if ((*it)->getName() == foodName) {
-            // If found, get the food item
-            Food* food = *it;
-            // Remove the food item from the plate
-            m_foodItems.erase(it);
-            // Return the removed food item
+    for (auto iterator = m_foodItems.begin(); iterator != m_foodItems.end(); ++iterator) {
+        if ((*iterator)->getName() == foodName) {
+            Food* food = *iterator;
+            m_foodItems.erase(iterator);
             return food;
         }
     }
-    // If the specified food item is not found in the plate, return nullptr
     return nullptr;
 }
 

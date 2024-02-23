@@ -9,5 +9,5 @@ Tongue::Tongue(int length)
 
 void Tongue::tasteFood(const string &food) const
 {
-    cout << "Tasting " << food << " with the tongue." << endl;
+    cout<< endl << "Tasting " << food << " with the tongue." << endl <<endl;
 }

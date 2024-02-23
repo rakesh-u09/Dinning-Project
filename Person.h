@@ -12,7 +12,7 @@ class Person
 public:
     Person(personName);
     ~Person();
-    void setHand(Hand*);
+    bool setHand(Hand*);
     void setMouth(Mouth*);
     Hand* getHand();
     Mouth* getMouth();
@@ -23,6 +23,7 @@ public:
     void chewFood(const string& food) const;
     void drinkWater(const string& liquid);
     void releaseFood();
+    void tasteFood(const string& food) const;
     string getName() const;
 
 private:

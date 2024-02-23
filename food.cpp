@@ -12,9 +12,16 @@ Food::~Food()
     }
 }
 
-void Food::addIngredient(Ingredients* ingredient)
+bool Food::addIngredient(Ingredients* ingredient)
 {
-    m_ingredients.push_back(ingredient);
+    if(!ingredient){
+        cout<<"can't add null pointer to Ingredient to food"<< endl << endl;
+        return false;
+    }
+    else{
+        m_ingredients.push_back(ingredient);
+        return true;
+    }
 }
 
 string Food::getName() const

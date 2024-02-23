@@ -10,9 +10,16 @@ Person::~Person()
     delete m_mouth;
 }
 
-void Person::setHand(Hand* hand)
+bool Person::setHand(Hand* hand)
 {
-    m_hand = hand;
+    if(hand){
+        m_hand = hand;
+        return true;
+    }
+    else{
+        return false;
+    }
+
 }
 
 void Person::setMouth(Mouth* mouth)
@@ -65,6 +72,11 @@ void Person::drinkWater(const string &liquid)
 void Person::releaseFood()
 {
     m_hand->releaseFood();
+}
+
+void Person::tasteFood(const string &food) const
+{
+    m_mouth->tasteFood(food);
 }
 
 string Person::getName() const

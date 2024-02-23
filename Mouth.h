@@ -16,6 +16,7 @@ public:
     void setTooths(const vector<Tooth*>&);
     void setTongue(Tongue*);
     void displayTooths() const;
+    void tasteFood(const string& food) const;
 private:
     Tongue* m_tongue;
     vector<Tooth*> m_tooths;

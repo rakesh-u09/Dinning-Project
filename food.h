@@ -13,7 +13,7 @@ class Food
 public:
     Food(name,calories);
     ~Food();
-    void addIngredient( Ingredients* ingredient);
+    bool addIngredient( Ingredients* ingredient);
     string getName() const;
     int getCalories() const;
     void displayIngredients();
